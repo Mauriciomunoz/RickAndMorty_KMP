@@ -20,13 +20,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.mmsoft.mykmpapp.presentation.UserViewModel
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.compose.viewmodel.koinViewModel
 
 @Immutable
 data class UserUiItem(
-    val id: Int,
+    val id: String,
     val name: String,
     val email: String
 )

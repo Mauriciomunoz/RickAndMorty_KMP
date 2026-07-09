@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.mmsoft.mykmpapp.presentation.UserListRoute
 import org.jetbrains.compose.resources.painterResource
 
 import mykmpapp.shared.generated.resources.Res
@@ -23,6 +25,7 @@ import mykmpapp.shared.generated.resources.compose_multiplatform
 @Preview
 fun App() {
     MaterialTheme {
+        /*
         var showContent by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
@@ -44,6 +47,13 @@ fun App() {
                     Text("Compose: $greeting")
                 }
             }
+        }*/
+
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            UserListRoute()
         }
     }
 }
