@@ -1,8 +1,11 @@
 package com.mmsoft.mykmpapp.di
 
 
+import com.mmsoft.mykmpapp.data.repository.CharacterRepositoryImpl
 import com.mmsoft.mykmpapp.data.repository.UserRepositoryImpl
+import com.mmsoft.mykmpapp.domain.repository.CharacterRepository
 import com.mmsoft.mykmpapp.domain.repository.UserRepository
+import com.mmsoft.mykmpapp.presentation.CharacterListViewModel
 import com.mmsoft.mykmpapp.presentation.UserViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -19,8 +22,10 @@ val sharedModule = module {
     single { httpClient }
     //Singleton creation
     single<UserRepository> { UserRepositoryImpl(get()) }
+    single<CharacterRepository> { CharacterRepositoryImpl(get()) }
 
     factory { UserViewModel(get()) }
+    factory { CharacterListViewModel(get()) }
 
 }
 
