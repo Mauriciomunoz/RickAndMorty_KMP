@@ -9,9 +9,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.annotation.ExperimentalCoilApi
+import com.mmsoft.mykmpapp.presentation.CharacterDetailRoute
 import com.mmsoft.mykmpapp.presentation.CharacterListRoute
 
 @OptIn(ExperimentalCoilApi::class)
@@ -19,32 +24,44 @@ import com.mmsoft.mykmpapp.presentation.CharacterListRoute
 @Preview
 fun App() {
     MaterialTheme {
+        //Saves the id of the selected character
+        var selectedCharacterId by remember { mutableStateOf<String?>(null) }
+
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            Scaffold(
-                topBar = {
-                    TopAppBar(
-                        title = { Text("Rick & Morty KMP") },
-                        colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer,
-                            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            if(selectedCharacterId == null) {
+                Scaffold(
+                    topBar = {
+                        TopAppBar(
+                            title = { Text("Rick & Morty KMP") },
+                            colors = TopAppBarDefaults.topAppBarColors(
+                                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                            )
                         )
-                    )
+                    }
+                ) { paddingValues ->
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                    ) {
+                        CharacterListRoute(
+                            onCharacterClick = { id ->
+                                selectedCharacterId = id
+                            }
+                        )
+                    }
                 }
-            ) { paddingValues ->
-                Surface(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                ) {
-                    CharacterListRoute(
-                        onCharacterClick = { id ->
-                            println("Clicked character $id")
-                        }
-                    )
-                }
+            }else{
+                CharacterDetailRoute(
+                    characterId = selectedCharacterId!!,
+                    onBackClick = {
+                        selectedCharacterId = null
+                    }
+                )
             }
         }
     }

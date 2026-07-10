@@ -8,28 +8,24 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class CharacterListViewModel(
+class CharacterDetailViewModel(
     private val repository: CharacterRepository
 ) : ViewModel() {
-
     private val _uiState = MutableStateFlow<CharacterUiState>(CharacterUiState.Loading)
     val uiState: StateFlow<CharacterUiState> = _uiState.asStateFlow()
 
-    init {
-        loadCharacters()
-    }
-
-    fun loadCharacters(){
+    fun loadCharacterDetail(id: String){
         viewModelScope.launch {
             _uiState.value = CharacterUiState.Loading
 
-            repository.getCharacters()
-                .onSuccess { characterList ->
-                    _uiState.value = CharacterUiState.Success(characterList)
+            repository.getCharacterById(id)
+                .onSuccess { character ->
+                    _uiState.value = CharacterUiState.Success(listOf(character))
                 }
                 .onFailure { exception ->
                     _uiState.value = CharacterUiState.Error(exception.message ?: "Unknown error")
                 }
         }
     }
+
 }

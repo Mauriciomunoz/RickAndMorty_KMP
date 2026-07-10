@@ -4,4 +4,6 @@ import com.mmsoft.mykmpapp.domain.CharacterDomainModel
 
 interface CharacterRepository {
     suspend fun getCharacters(): Result<List<CharacterDomainModel>>
+
+    suspend fun getCharacterById(id: String): Result<CharacterDomainModel>
 }

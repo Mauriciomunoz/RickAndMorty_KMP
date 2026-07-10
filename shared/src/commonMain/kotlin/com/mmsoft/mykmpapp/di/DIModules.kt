@@ -5,6 +5,7 @@ import com.mmsoft.mykmpapp.data.repository.CharacterRepositoryImpl
 import com.mmsoft.mykmpapp.data.repository.UserRepositoryImpl
 import com.mmsoft.mykmpapp.domain.repository.CharacterRepository
 import com.mmsoft.mykmpapp.domain.repository.UserRepository
+import com.mmsoft.mykmpapp.presentation.CharacterDetailViewModel
 import com.mmsoft.mykmpapp.presentation.CharacterListViewModel
 import com.mmsoft.mykmpapp.presentation.UserViewModel
 import io.ktor.client.HttpClient
@@ -26,6 +27,7 @@ val sharedModule = module {
 
     factory { UserViewModel(get()) }
     factory { CharacterListViewModel(get()) }
+    factory { CharacterDetailViewModel(get()) }
 
 }
 
