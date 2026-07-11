@@ -15,6 +15,7 @@ import kotlinx.serialization.json.Json
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
@@ -25,9 +26,9 @@ val sharedModule = module {
     single<UserRepository> { UserRepositoryImpl(get()) }
     single<CharacterRepository> { CharacterRepositoryImpl(get()) }
 
-    factory { UserViewModel(get()) }
-    factory { CharacterListViewModel(get()) }
-    factory { CharacterDetailViewModel(get()) }
+    viewModel { UserViewModel(get()) }
+    single { CharacterListViewModel(get()) }
+    viewModel { CharacterDetailViewModel(get()) }
 
 }
 

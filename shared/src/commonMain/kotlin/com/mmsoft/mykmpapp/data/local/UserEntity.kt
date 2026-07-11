@@ -1,7 +1,9 @@
 package com.mmsoft.mykmpapp.data.local
 
+/*
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+
 
 @Entity(tableName = "users")
 data class UserEntity(
@@ -9,4 +11,4 @@ data class UserEntity(
     val id: Int,
     val name: String,
     val email: String
-)
+)*/

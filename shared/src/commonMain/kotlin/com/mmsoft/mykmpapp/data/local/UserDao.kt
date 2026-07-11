@@ -1,5 +1,6 @@
 package com.mmsoft.mykmpapp.data.local
 
+/*
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,4 +14,4 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertUsers(users: List<UserEntity>)
-}
+}*/

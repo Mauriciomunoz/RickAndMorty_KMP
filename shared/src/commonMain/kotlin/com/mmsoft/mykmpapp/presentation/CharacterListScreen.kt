@@ -31,13 +31,16 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.mmsoft.mykmpapp.domain.CharacterDomainModel
+import org.koin.compose.getKoin
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun CharacterListRoute(
-    viewModel: CharacterListViewModel = koinViewModel(),
     onCharacterClick: (String) -> Unit
 ){
+
+    val viewModel: CharacterListViewModel = getKoin().get()
+
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     CharacterListScreen(
@@ -111,6 +114,14 @@ fun CharacterRow(
                     .clip(CircleShape), // Circular photo
                 contentScale = ContentScale.Crop
             )
+
+           /* Box(
+                modifier = Modifier
+                    .size(64.dp)
+                    .clip(CircleShape)
+                    .background(androidx.compose.ui.graphics.Color.LightGray)
+            )*/
+
 
             Spacer(modifier = Modifier.width(16.dp))
 

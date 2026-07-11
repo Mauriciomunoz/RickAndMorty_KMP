@@ -6,6 +6,11 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.room)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 kotlin {
@@ -64,10 +69,11 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
 
             //Room
-            implementation(libs.room.runtime)
+            //implementation(libs.room.runtime)
 
             //Coroutines to observe the Room
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+            //implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+            implementation(libs.kotlinx.coroutines.core)
 
             // KOIN MULTIPLATFORM
             api(libs.koin.core)
@@ -75,7 +81,6 @@ kotlin {
             implementation(libs.koin.compose.viewmodel)
 
             //Coil
-            implementation(libs.koin.compose.viewmodel)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
         }
