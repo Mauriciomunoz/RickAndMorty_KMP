@@ -36,11 +36,9 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun CharacterListRoute(
+    viewModel: CharacterListViewModel = koinViewModel(),
     onCharacterClick: (String) -> Unit
 ){
-
-    val viewModel: CharacterListViewModel = getKoin().get()
-
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     CharacterListScreen(

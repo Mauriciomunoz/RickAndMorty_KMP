@@ -13,9 +13,8 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.core.context.startKoin
-import org.koin.core.module.Module
-import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModel
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
@@ -27,7 +26,7 @@ val sharedModule = module {
     single<CharacterRepository> { CharacterRepositoryImpl(get()) }
 
     viewModel { UserViewModel(get()) }
-    single { CharacterListViewModel(get()) }
+    viewModelOf(::CharacterListViewModel)
     viewModel { CharacterDetailViewModel(get()) }
 
 }
@@ -37,6 +36,10 @@ fun initKoin(config: KoinAppDeclaration? = null) {
         config?.invoke(this)
         modules(sharedModule)
     }
+}
+
+fun initKoin() {
+    initKoin(config = null)
 }
 
 val httpClient = HttpClient {

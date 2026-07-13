@@ -5,7 +5,6 @@ import com.mmsoft.mykmpapp.di.initKoin
 import platform.UIKit.UIViewController
 
 fun MainViewController(): UIViewController {
-    initKoin()
     return ComposeUIViewController {
         App()
     }
