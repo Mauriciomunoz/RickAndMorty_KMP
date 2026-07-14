@@ -57,3 +57,7 @@ The next major iteration of this project will focus on robust offline support an
 2. Sync the Gradle project.
 3. **To run on Android:** Select the `composeApp` (or `androidApp`) run configuration and launch it on an emulator or physical device.
 4. **To run on iOS:** Select the `iosApp` run configuration and launch it on an iPhone simulator. *(Note: Ensure `Clean Build Folder` is run in Xcode if testing after version dependency updates).*
+
+## ✒️ Author
+
+Miguel Mauricio Muñoz - https://www.linkedin.com/in/miguelmmunozm/
