@@ -6,18 +6,19 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.mmsoft.mykmpapp.data.local.getRoomDatabaseBuilder
+import com.mmsoft.mykmpapp.data.local.startKoin
+import com.mmsoft.mykmpapp.di.databaseModule
 import com.mmsoft.mykmpapp.di.initKoin
 import org.koin.android.ext.koin.androidContext
+import org.koin.dsl.module
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        initKoin {
-            androidContext(this@MainActivity)
-        }
-
+        startKoin(this)
         setContent {
             App()
         }

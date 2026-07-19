@@ -33,7 +33,7 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun CharacterDetailRoute(
-    characterId: String,
+    characterId: Int,
     viewModel: CharacterDetailViewModel = koinViewModel(),
     onBackClick: () -> Unit
 ) {

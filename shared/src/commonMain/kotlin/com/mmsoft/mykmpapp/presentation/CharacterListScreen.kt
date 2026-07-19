@@ -30,14 +30,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
-import com.mmsoft.mykmpapp.domain.CharacterDomainModel
-import org.koin.compose.getKoin
+import com.mmsoft.mykmpapp.domain.model.CharacterDomainModel
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun CharacterListRoute(
     viewModel: CharacterListViewModel = koinViewModel(),
-    onCharacterClick: (String) -> Unit
+    onCharacterClick: (Int) -> Unit
 ){
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -51,7 +50,7 @@ fun CharacterListRoute(
 @Composable
 fun CharacterListScreen(
     uiState: CharacterUiState,
-    onCharacterClick: (String) -> Unit
+    onCharacterClick: (Int) -> Unit
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),

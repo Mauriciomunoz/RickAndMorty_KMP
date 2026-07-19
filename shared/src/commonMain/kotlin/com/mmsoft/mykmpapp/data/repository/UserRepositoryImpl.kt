@@ -1,7 +1,6 @@
 package com.mmsoft.mykmpapp.data.repository
 
-import com.mmsoft.mykmpapp.data.model.SingleUserResponse
-import com.mmsoft.mykmpapp.domain.UserDomainModel
+import com.mmsoft.mykmpapp.domain.model.UserDomainModel
 import com.mmsoft.mykmpapp.domain.repository.UserRepository
 import com.mmsoft.mykmpapp.data.model.UserDto
 import com.mmsoft.mykmpapp.data.safeApiCall

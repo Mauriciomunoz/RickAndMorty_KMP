@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.room)
+    alias(libs.plugins.ksp)
 }
 
 room {
@@ -70,7 +71,8 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
 
             //Room
-            //implementation(libs.room.runtime)
+            implementation(libs.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
 
             //Coroutines to observe the Room
             //implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
@@ -93,4 +95,8 @@ kotlin {
 
 dependencies {
     androidRuntimeClasspath(libs.compose.uiTooling)
+
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
 }

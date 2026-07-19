@@ -1,4 +1,4 @@
-package com.mmsoft.mykmpapp.domain
+package com.mmsoft.mykmpapp.domain.model
 
 data class UserDomainModel(
     val id: String,

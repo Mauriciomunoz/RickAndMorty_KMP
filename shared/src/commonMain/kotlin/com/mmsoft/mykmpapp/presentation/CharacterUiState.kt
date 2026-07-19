@@ -1,6 +1,6 @@
 package com.mmsoft.mykmpapp.presentation
 
-import com.mmsoft.mykmpapp.domain.CharacterDomainModel
+import com.mmsoft.mykmpapp.domain.model.CharacterDomainModel
 
 sealed interface CharacterUiState {
     object Loading : CharacterUiState

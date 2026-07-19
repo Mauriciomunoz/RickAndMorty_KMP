@@ -1,6 +1,6 @@
 package com.mmsoft.mykmpapp.data.model
 
-import com.mmsoft.mykmpapp.domain.UserDomainModel
+import com.mmsoft.mykmpapp.domain.model.UserDomainModel
 import kotlinx.serialization.Serializable
 
 @Serializable

@@ -25,7 +25,7 @@ import com.mmsoft.mykmpapp.presentation.CharacterListRoute
 fun App() {
     MaterialTheme {
         //Saves the id of the selected character
-        var selectedCharacterId by remember { mutableStateOf<String?>(null) }
+        var selectedCharacterId by remember { mutableStateOf<Int?>(null) }
 
         Surface(
             modifier = Modifier.fillMaxSize(),

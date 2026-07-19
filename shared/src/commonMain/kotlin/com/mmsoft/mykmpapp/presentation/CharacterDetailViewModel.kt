@@ -14,7 +14,7 @@ class CharacterDetailViewModel(
     private val _uiState = MutableStateFlow<CharacterUiState>(CharacterUiState.Loading)
     val uiState: StateFlow<CharacterUiState> = _uiState.asStateFlow()
 
-    fun loadCharacterDetail(id: String){
+    fun loadCharacterDetail(id: Int){
         viewModelScope.launch {
             _uiState.value = CharacterUiState.Loading
 

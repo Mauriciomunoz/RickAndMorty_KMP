@@ -1,6 +1,6 @@
 package com.mmsoft.mykmpapp.data.model
 
-import com.mmsoft.mykmpapp.domain.CharacterDomainModel
+import com.mmsoft.mykmpapp.domain.model.CharacterDomainModel
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -19,7 +19,7 @@ data class CharacterDto(
 
 fun CharacterDto.toDomain(): CharacterDomainModel {
     return CharacterDomainModel(
-        id = this.id.toString(),
+        id = this.id,
         name = this.name,
         status = this.status,
         species = this.species,

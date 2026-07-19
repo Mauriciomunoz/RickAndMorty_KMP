@@ -1,7 +1,7 @@
-package com.mmsoft.mykmpapp.domain
+package com.mmsoft.mykmpapp.domain.model
 
 data class CharacterDomainModel(
-    val id: String,
+    val id: Int,
     val name: String,
     val status: String,
     val species: String,
